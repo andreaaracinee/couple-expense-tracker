@@ -1,2 +1,7 @@
-# couple-expense-tracker
-Expense / Income tracker for couples (or with a couple tweaks works solo as well). Pretty basic project, did it so my partner and I could use it for very basic tracking lol so the UI is not very complex, cute first project I guess.
+I made this expense tracker for me and my partner, but feel free to use the code as a reference for you and whoever you want as well (or solo whoops)
+
+- Made the base code on VSCode
+- Frontend on Supabase
+- Deployed using Vercel
+
+As of April 1st 2026 this project is still a work in process. The website works (+ all the stuff in it) but I'm working on some improvements for the website.

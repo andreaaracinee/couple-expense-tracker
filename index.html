@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Money Tracking</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <nav class="side-nav">
+      <button class="side-link active" data-target="home" type="button">Home</button>
+      <button class="side-link" data-target="expenses" type="button">Expenses</button>
+    </nav>
+  </aside>
+
+  <main class="app">
+
+    <section id="home">
+
+      <h1>Household Money Tracking</h1>
+
+      <div class="dashboard-grid">
+
+        <div class="left-dashboard">
+
+          <div class="dashboard-filters">
+            <select id="monthFilter">
+              <option value="All">All Months</option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+
+            <select id="personFilter">
+              <option value="All">All</option>
+              <option value="Me">Me</option>
+              <option value="Partner">Partner</option>
+              <option value="Both">Both</option>
+            </select>
+          </div>
+
+          <div class="dashboard-top">
+
+            <div class="card metric-card">
+              <h3>Income</h3>
+              <p id="incomeTotal">$0.00</p>
+            </div>
+
+            <div class="card metric-card">
+              <h3>Expenses</h3>
+              <p id="expenseTotal">$0.00</p>
+            </div>
+
+          </div>
+
+          <div class="card chart-card">
+            <div class="card-header">
+              <h3>Expenses</h3>
+            </div>
+            <canvas id="expenseChart"></canvas>
+          </div>
+
+          <div class="card chart-card">
+            <div class="card-header">
+              <h3>Income</h3>
+            </div>
+            <canvas id="incomeChart"></canvas>
+          </div>
+
+        </div>
+
+        <div class="card recent-transactions">
+          <h3>Latest Transactions</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Person</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="recentTransactions"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="expenses" class="hidden">
+
+      <div id="expenseTableView">
+
+        <div class="table-header">
+          <h2>Expenses</h2>
+          <button id="toggleExpenseForm">Add Expense</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Expense</th>
+              <th>Amount</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Person</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="expenseTable"></tbody>
+        </table>
+
+      </div>
+
+      <div id="expenseForm" class="hidden">
+
+        <div class="form-container">
+
+          <div class="form-left">
+
+            <button id="backButton">Back</button>
+
+            <input type="text" id="expenseName" placeholder="Subject">
+
+            <select id="type"></select>
+            <select id="person"></select>
+
+            <input type="date" id="expenseDate">
+
+            <input type="number" id="amount" step="0.01" placeholder="Total">
+
+            <select id="category"></select>
+
+            <textarea id="description" placeholder="Description"></textarea>
+
+            <button id="saveExpense">Save</button>
+
+          </div>
+
+          <div class="form-right">
+            <label>Upload Invoice (Optional)</label>
+            <input type="file" id="invoice">
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

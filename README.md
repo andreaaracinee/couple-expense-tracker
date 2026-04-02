@@ -13,7 +13,7 @@ Expenses View
 ![Expenses](readme-images/expenses-view.png)
 
 Add Expenses View
-![Add-Expense](readme-images/add-expense.png) view
+![Add-Expense](readme-images/add-expense.png)
 
 
 Note: As of April 1st 2026 this project is still a work in process. The website works (+ all the stuff in it) but I'm working on some improvements for the website.
